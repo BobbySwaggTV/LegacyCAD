@@ -1,0 +1,40 @@
+input {
+    box-sizing: border-box;
+    width: 100%;
+    font-size: 28px;
+    padding: 16px;
+}
+
+#search {
+    margin-top: 24px;
+    margin-bottom: 24px;
+}
+
+#searchBtn {
+    border: 1px solid transparent;
+    display: block;
+    padding: 16px;
+    background-color: #a30827;
+}
+
+#searchBtn:hover {
+    color: white;
+    background-color: crimson;
+}
+
+#results {
+    padding: 24px;
+    display: none;
+}
+
+#results a {
+    background-color: #5f53ad;    
+    padding: 12px;
+    margin: 24px;
+    display: block;
+}
+
+#results a:hover {
+    color: white;
+    background-color: coral;
+}

@@ -1,0 +1,46 @@
+* {
+    font-family: "Trebuchet MS", Times, serif;
+    color: white;
+    transition-duration: 0.5s;
+}
+
+html, body {
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    background-color: #141414;
+    background-size: cover;
+}
+
+body {
+    padding: 5vw 8vw 0 8vw;
+    font-size: 24px;
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    color: darkslateblue;
+}
+
+input {
+    color: black;
+}
+
+.header li {
+    display: inline-block;
+    margin-left: 32px;
+}
+
+.content {
+    margin: 8vw 5vw 0 5vw;
+}
+
+footer {
+  padding: 24px;
+}

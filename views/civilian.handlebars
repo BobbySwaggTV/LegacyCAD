@@ -1,0 +1,30 @@
+<link rel="stylesheet" href="/stylesheets/index.css">
+
+<!-- Civ's ID, hide it -->
+<span id="civid" style="display: none">{{data.civ.identifier}}</span>
+
+<h1>{{data.civ.firstname}} {{data.civ.lastname}} ({{data.civ.dateofbirth}})</h1>
+<hr>
+<p>
+    You are now viewing a civilian's page. Don't do something you're not supposed to!
+</p>
+
+<!-- Licenses -->
+<div class="purple">
+    <h3>Licenses</h3>
+    {{#each data.licenses}}
+    <li>{{this.label}}</li>
+    {{else}}
+    <p>No licenses</p>
+    {{/each}}
+</div>
+
+<!-- Criminal record -->
+<div class="purple">
+    <h3>Criminal Record</h3>
+    {{#each data.record}}
+        <li>{{this.crime}} - comitted on {{this.dateofcrime}}</li>
+    {{else}}
+        <p>No crimes comitted</p>
+    {{/each}}
+</div>

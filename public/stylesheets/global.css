@@ -1,0 +1,12 @@
+.purple {
+    padding: 32px; margin: 32px;
+    background-color: darkslateblue;
+}
+
+.purple h3 {
+    margin: 0;
+}
+
+.purple > * {
+    margin: 24px;
+}
