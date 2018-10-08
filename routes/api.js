@@ -4,13 +4,13 @@ var router = express.Router();
 // Database
 const pool = require('./lib/database');
 
-/* GET civilians by search query. */
-router.get('/civs/:query', function (req, res, next) {
+/* GET civilians by search name. */
+router.get('/civs/:name', function (req, res, next) {
     // The query
-    var query = req.params.query.toLowerCase();
+    var query = req.params.name.toLowerCase();
 
     // Perform sql on query
-    var sql = `SELECT * FROM characters WHERE (LOWER(firstname) LIKE '%${query}%' OR LOWER(lastname) LIKE '%${query}%')`;
+    var sql = `SELECT * FROM users WHERE (LOWER(firstname) LIKE '%${query}%' OR LOWER(lastname) LIKE '%${query}%')`;
     pool.query(sql).then(results => res.json(results));
 });
 
@@ -33,5 +33,7 @@ router.delete('/record', function (req, res, next) {
     var query = pool.query(`DELETE FROM qalle_brottsregister WHERE id=${id}`);
     query.then(res.json({}));
 });
+
+
 
 module.exports = router;
