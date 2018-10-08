@@ -16,16 +16,20 @@ function onSearchClick(e) {
     var results = $('#results');
     results.children('a').remove();
 
-    console.log('clicked');
-
     // Collect users
     getUsers($("#civSearch").val(), function (data) {
-        console.log('here 1');
         // Append results and show them
-        data.forEach(user => results.append(
-            '<a href="/' + user.firstname + '%20' + user.lastname + '/' + user.dateofbirth + '/' + user.identifier + '"><li><span>' + user.firstname + ' ' + user.lastname + ' (' + user.dateofbirth + ')</span></li></a>'
-        ));
-        console.log('here');
+        data.forEach(user => {
+            var name = cleanString(user.firstname + ' ' + user.lastname);
+            var birth = cleanString(user.dateofbirth);
+            results.append(
+                `<a href="/civ/${name}/${birth}/${user.identifier}">
+                    <li>
+                        <span>${name} (${parseSex(user.sex)}, ${birth})</span>
+                    </li>
+                </a>`
+            )
+        });
         results.show();
     });
 }
@@ -38,4 +42,19 @@ function onSearchClick(e) {
  */
 function getUsers(query, callback) {
     $.getJSON(API_PATH + 'civs/' + query.toLowerCase(), data => callback(data));
+}
+
+/**
+ * Cleans string for putting in an url
+ * 
+ * @param {*} str String to clean
+ */
+function cleanString(str) {
+    str = str.replace(new RegExp('/', 'g'), '-');
+    return str;
+}
+
+function parseSex(sex) {
+    sex = sex.toLowerCase();
+    return sex === 'm' ? 'male' : 'female';
 }

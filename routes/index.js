@@ -6,21 +6,21 @@ const pool = require('./lib/database');
 
 /* Handle all requests here */
 router.use('/', function (req, res, next) {
-  next();
-}); 
+  return next();
+});
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
-  res.render('index');
+  return res.render('index');
 });
 
 /* GET civilian page. */
-router.get('/:name/:birth/:id', function (req, res, next) {
-    // Get steam64 and lower it
-    var id = req.params.id.toLowerCase();
+router.get('/civ/:name/:birth/:id', function (req, res, next) {
+  // Get steam64 and lower it
+  var id = req.params.id.toLowerCase();
 
   // Render civilian
-  getData(id)
+  getData(id, req.params.name, req.params.birth)
     .then(civ => res.render('civilian', { civ }))
     .catch(err => res.render('error', { message: err }));
 });
