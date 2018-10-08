@@ -3,30 +3,31 @@
 <!-- Civ's ID, hide it -->
 <span id="civid" style="display: none">{{civ.identifier}}</span>
 
-<h1>{{civ.firstname}} {{civ.lastname}} ({{civ.dateofbirth}})</h1>
+<h1>{{civ.name}} ({{civ.birth}})</h1>
 <hr>
 <p>
     You are now viewing a civilian's page. Remember to only perform actions here which you have a reason to.
 </p>
 
 <!-- Wanted ? -->
-<a href="javascript:void(0)"><div class="container green">
+<div class="container green">
     <h3>NO ACTIVE WARRANTS</h3>
-</div></a>
+</div>
 
-<a href="javascript:void(0)"><div class="container red" id="warrants">
+<div class="container red" id="warrants">
     <h3>!! HAS WARRANTS FOR ARREST !!</h3>
     <p>This person is wanted for: <i>attempted murder, GTA</i>. Bring them in.</p>
-</div></a>
+</div>
 
 <!-- Criminal record -->
 <div class="container">
     <h3>Criminal Record</h3>
     <div class="list" id="record">
+        <!--<input type="text" name="crime" id="crime">-->
         {{#each civ.record}}
             <li oid="{{this.id}}">
                 <span class="left">{{this.crime}} ({{this.dateofcrime}})</span>
-                <a href="javascript:void(0)" class="right button">Delete</a>
+                <a href="javascript:void(0)" class="right button">Remove</a>
             </li>
         {{else}}
             <p>They have a clean sheet</p>

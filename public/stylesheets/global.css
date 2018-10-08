@@ -28,9 +28,8 @@
 }
 
 .list li {
-    background-color: darkcyan;    
-    padding: 10px;
-    margin: 24px;
+    background-color: blue;
+    margin: 24px; 
     display: block;
     overflow: hidden;
 }
@@ -47,4 +46,9 @@
 .button:hover {
     color: white;
     background-color: crimson;
+}
+
+input {
+    padding: 5px;
+    font-size: 14px;
 }

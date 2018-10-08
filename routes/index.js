@@ -6,7 +6,7 @@ const pool = require('./lib/database');
 
 /* Handle all requests here */
 router.use('/', function (req, res, next) {
-  
+  next();
 }); 
 
 /* GET home page. */
@@ -15,9 +15,9 @@ router.get('/', function (req, res, next) {
 });
 
 /* GET civilian page. */
-router.get('/:id', function (req, res, next) {
-  // Get steam64 and lower it
-  var id = req.params.id.toLowerCase();
+router.get('/:name/:birth/:id', function (req, res, next) {
+    // Get steam64 and lower it
+    var id = req.params.id.toLowerCase();
 
   // Render civilian
   getData(id)
@@ -29,10 +29,14 @@ router.get('/:id', function (req, res, next) {
  * Gets an user by their id
  * 
  * @param {string} id The identifier
+ * @param {string} name Full name
+ * @param {string} birth Birth date
  */
-async function getData(id) {
+async function getData(id, name, birth) {
   // Make a civ object
   var civ = await getCiv(id);
+  civ.name = name;
+  civ.birth = birth;
 
   // Data
   civ.record = await getRecord(id);

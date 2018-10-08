@@ -16,12 +16,16 @@ function onSearchClick(e) {
     var results = $('#results');
     results.children('a').remove();
 
+    console.log('clicked');
+
     // Collect users
     getUsers($("#civSearch").val(), function (data) {
+        console.log('here 1');
         // Append results and show them
         data.forEach(user => results.append(
-            '<a href="/' + user.identifier + '"><li><span>' + user.firstname + ' ' + user.lastname + ' (' + user.dateofbirth + ')</span></li></a>'
+            '<a href="/' + user.firstname + '%20' + user.lastname + '/' + user.dateofbirth + '/' + user.identifier + '"><li><span>' + user.firstname + ' ' + user.lastname + ' (' + user.dateofbirth + ')</span></li></a>'
         ));
+        console.log('here');
         results.show();
     });
 }

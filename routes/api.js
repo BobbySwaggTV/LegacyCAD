@@ -10,6 +10,7 @@ router.get('/civs/:query', function (req, res, next) {
     var query = req.params.query.toLowerCase();
 
     // Perform sql on query
+    console.log('query: ' + query);
     var sql = `SELECT * FROM characters WHERE (LOWER(firstname) LIKE '%${query}%' OR LOWER(lastname) LIKE '%${query}%')`;
     pool.query(sql).then(results => res.json(results));
 });

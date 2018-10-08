@@ -27,7 +27,11 @@ input {
     display: none;
 }
 
+#results li {
+    padding: 12px;
+}
+
 #results li:hover {
     color: white;
-    background-color: lightseagreen;
+    background-color: #2b2bf2;
 }
