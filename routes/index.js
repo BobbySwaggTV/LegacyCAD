@@ -4,8 +4,13 @@ var router = express.Router();
 // Database
 const pool = require('./lib/database');
 
+/* Handle all requests here */
+router.use('/', function (req, res, next) {
+  
+}); 
+
 /* GET home page. */
-router.get('/', function(req, res, next) {
+router.get('/', function (req, res, next) {
   res.render('index');
 });
 
@@ -18,8 +23,6 @@ router.get('/:id', function (req, res, next) {
   getData(id)
     .then(civ => res.render('civilian', { civ }))
     .catch(err => res.render('error', { message: err }));
-
-  
 });
 
 /**

@@ -1,6 +1,6 @@
 .container {
     padding: 24px; margin: 32px;
-    background-color: darkslateblue;
+    background-color: darkblue;
 }
 
 .container h3 {
@@ -12,7 +12,11 @@
 }
 
 .container.red {
-    background-color: crimson;
+    background-color: #a30827;
+}
+
+.container.green {
+    background-color: limegreen;
 }
 
 .left {
@@ -24,7 +28,7 @@
 }
 
 .list li {
-    background-color: #5f53ad;    
+    background-color: darkcyan;    
     padding: 10px;
     margin: 24px;
     display: block;
