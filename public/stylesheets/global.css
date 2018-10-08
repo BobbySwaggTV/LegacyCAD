@@ -1,12 +1,46 @@
-.purple {
-    padding: 32px; margin: 32px;
+.container {
+    padding: 24px; margin: 32px;
     background-color: darkslateblue;
 }
 
-.purple h3 {
+.container h3 {
     margin: 0;
 }
 
-.purple > * {
+.container > * {
     margin: 24px;
+}
+
+.container.red {
+    background-color: crimson;
+}
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
+.list li {
+    background-color: #5f53ad;    
+    padding: 10px;
+    margin: 24px;
+    display: block;
+    overflow: hidden;
+}
+
+.list li > * {
+    padding: 14px;
+}
+
+.button {
+    border: 1px solid transparent;
+    background-color: #a30827;
+}
+
+.button:hover {
+    color: white;
+    background-color: crimson;
 }

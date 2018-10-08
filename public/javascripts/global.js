@@ -1,8 +1,4 @@
 /**
- * Extracts the steam16 from an identifier
- * 
- * @param {string} identifier Identifier to extract from
+ * The path to the site's api
  */
-function extractSteam16Id(identifier) {
-    return identifier.split(':')[1];
-}
+const API_PATH = '/api/';

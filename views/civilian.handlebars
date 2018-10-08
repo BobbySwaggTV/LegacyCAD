@@ -1,30 +1,46 @@
-<link rel="stylesheet" href="/stylesheets/index.css">
+<link rel="stylesheet" href="/stylesheets/civilian.css">
 
 <!-- Civ's ID, hide it -->
-<span id="civid" style="display: none">{{data.civ.identifier}}</span>
+<span id="civid" style="display: none">{{civ.identifier}}</span>
 
-<h1>{{data.civ.firstname}} {{data.civ.lastname}} ({{data.civ.dateofbirth}})</h1>
+<h1>{{civ.firstname}} {{civ.lastname}} ({{civ.dateofbirth}})</h1>
 <hr>
 <p>
-    You are now viewing a civilian's page. Don't do something you're not supposed to!
+    You are now viewing a civilian's page. Remember to only perform actions here which you have a reason to.
 </p>
 
-<!-- Licenses -->
-<div class="purple">
-    <h3>Licenses</h3>
-    {{#each data.licenses}}
-    <li>{{this.label}}</li>
-    {{else}}
-    <p>No licenses</p>
-    {{/each}}
+<!-- Wanted ? -->
+<div class="container red">
+    <h3>!! HAS WARRANTS FOR ARREST !!</h3>
+    <p>This person is wanted for: <i>attempted murder, GTA</i>. Bring them in.</p>
 </div>
 
 <!-- Criminal record -->
-<div class="purple">
+<div class="container">
     <h3>Criminal Record</h3>
-    {{#each data.record}}
-        <li>{{this.crime}} - comitted on {{this.dateofcrime}}</li>
-    {{else}}
-        <p>No crimes comitted</p>
-    {{/each}}
+    <div class="list" id="record">
+        {{#each civ.record}}
+            <li oid="{{this.id}}">
+                <span class="left">{{this.crime}} ({{this.dateofcrime}})</span>
+                <a href="javascript:void(0)" class="right button">Delete</a>
+            </li>
+        {{else}}
+            <p>They have a clean sheet</p>
+        {{/each}}
+    </div>
+</div>
+
+<!-- Licenses -->
+<div class="container">
+    <h3>Licenses</h3>
+    <div class="list" id="licenses">
+        {{#each civ.licenses}}
+            <li oid="{{this.raw.id}}">
+                <span class="left">{{this.friendly.label}}</span>
+                <a href="javascript:void(0)" class="right button">Revoke</a>
+            </li>
+        {{else}}
+            <p>No licenses found</p>
+        {{/each}}
+    </div>
 </div>

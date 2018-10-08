@@ -27,14 +27,7 @@ input {
     display: none;
 }
 
-#results a {
-    background-color: #5f53ad;    
-    padding: 12px;
-    margin: 24px;
-    display: block;
-}
-
-#results a:hover {
+#results li:hover {
     color: white;
     background-color: coral;
 }

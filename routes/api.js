@@ -14,4 +14,24 @@ router.get('/civs/:query', function (req, res, next) {
     pool.query(sql).then(results => res.json(results));
 });
 
+/* DELETE license. */
+router.delete('/license', function (req, res, next) {
+    // License id
+    var id = parseInt(req.body.id);
+
+    // Remove from database and notify sender
+    var query = pool.query(`DELETE FROM user_licenses WHERE id=${id}`);
+    query.then(res.json({}));
+});
+
+/* DELETE record. */
+router.delete('/record', function (req, res, next) {
+    // License id
+    var id = parseInt(req.body.id);
+
+    // Remove from database and notify sender
+    var query = pool.query(`DELETE FROM qalle_brottsregister WHERE id=${id}`);
+    query.then(res.json({}));
+});
+
 module.exports = router;

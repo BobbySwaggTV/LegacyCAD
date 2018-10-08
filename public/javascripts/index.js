@@ -1,8 +1,3 @@
-/**
- * The path to the site's api
- */
-const API_PATH = '/api/';
-
 // On document ready
 $(document).ready(function () {
 
@@ -25,7 +20,7 @@ function onSearchClick(e) {
     getUsers($("#civSearch").val(), function (data) {
         // Append results and show them
         data.forEach(user => results.append(
-            '<a href="/' + extractSteam16Id(user.identifier) + '">' + user.firstname + ' ' + user.lastname + ' (' + user.dateofbirth + ')</a>'
+            '<a href="/' + user.identifier + '"><li><span>' + user.firstname + ' ' + user.lastname + ' (' + user.dateofbirth + ')</span></li></a>'
         ));
         results.show();
     });

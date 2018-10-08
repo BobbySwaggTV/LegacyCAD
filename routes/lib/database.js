@@ -28,6 +28,6 @@ pool.getConnection((err, connection) => {
 });
 
 // Promisify query
-pool.query = util.promisify(pool.query); // Magic happens here.
+pool.query = util.promisify(pool.query); // Magic happens here. Promisify :o
 
 module.exports = pool;
