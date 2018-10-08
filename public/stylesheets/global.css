@@ -1,6 +1,6 @@
 .container {
     padding: 24px; margin: 32px;
-    background-color: darkblue;
+    background-color: #4040f9;
 }
 
 .container h3 {
@@ -28,7 +28,7 @@
 }
 
 .list li {
-    background-color: #4b4bfc;
+    background-color: #5353e2;
     margin: 24px; 
     display: block;
     overflow: hidden;

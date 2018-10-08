@@ -15,7 +15,7 @@ router.get('/', function (req, res, next) {
 });
 
 /* GET civilian page. */
-router.get('/civ/:name/:birth/:id', function (req, res, next) {
+router.get('/civilian/:name/:birth/:id', function (req, res, next) {
   // Get steam64 and lower it
   var id = req.params.id.toLowerCase();
 
@@ -53,7 +53,9 @@ async function getData(id, name, birth) {
  */
 async function getCiv(id) {
   var civs = await pool.query(`SELECT * FROM characters WHERE identifier = '${id}'`);
-  if (civs.length == 0) throw new Error('Civilian not found');
+  if (civs.length == 0) {
+    throw new Error('Civilian not found');
+  }
   return civs[0];
 }
 
@@ -69,11 +71,11 @@ async function getRecord(id) {
 /**
  * Gets a friendly version of license 
  * 
- * @param {string} license The type
+ * @param {string} type The type
  */
-async function getLicenseFriendly(license) {
-  var licenses = await pool.query(`SELECT * FROM licenses WHERE type = '${license}'`);
-  return licenses[0];
+async function getLicenseFriendly(type) {
+  var res = await pool.query(`SELECT * FROM licenses WHERE type = '${type}'`);
+  return res[0];
 }
 
 /**

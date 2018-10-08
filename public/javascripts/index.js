@@ -23,7 +23,7 @@ function onSearchClick(e) {
             var name = cleanString(user.firstname + ' ' + user.lastname);
             var birth = cleanString(user.dateofbirth);
             results.append(
-                `<a href="/civ/${name}/${birth}/${user.identifier}">
+                `<a href="/civilian/${name}/${birth}/${user.identifier}">
                     <li>
                         <span>${name} (${parseSex(user.sex)}, ${birth})</span>
                     </li>
@@ -50,6 +50,7 @@ function getUsers(query, callback) {
  * @param {*} str String to clean
  */
 function cleanString(str) {
+    str = str === '' ? 'unknown' : str;
     str = str.replace(new RegExp('/', 'g'), '-');
     return str;
 }

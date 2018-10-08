@@ -23,6 +23,7 @@ input {
 }
 
 #results {
+    border: solid 10px white;
     padding: 24px;
     display: none;
 }
@@ -31,7 +32,14 @@ input {
     padding: 12px;
 }
 
-#results li:hover {
-    color: white;
-    background-color: #5353e2;
+#bolos {
+    font-size: 18px;
+    width: 100%;
+    margin: 24px auto;
+}
+
+#bolos td {
+    border: solid 3px white;
+    padding: 12px; 
+    background-color: crimson;
 }
